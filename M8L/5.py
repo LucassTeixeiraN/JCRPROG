@@ -1,9 +1,10 @@
+# algoritmo de euclides para calcular MDC
 def mdc(a, b):
     while b != 0:
         a, b = b, a % b
     return a
 
-# Função para calcular o MMC entre dois números
+# Função para calcular o MMC entre dois números , utilizando o algoritmo de euclides
 def mmc(a, b):
     return (a * b) // mdc(a, b)
 
