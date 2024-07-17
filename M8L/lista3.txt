@@ -7,7 +7,7 @@
 - possivel retirada da função obter_inteiro
 - menu
 
-3)
+3) done!
 - fazer main
 - verificação do input
 
@@ -16,7 +16,7 @@
 - fazer main
 - fazer mais funções
 
-5)
+5) Done!
 - Possivelmente usar while True
 - Fazer a main
 
