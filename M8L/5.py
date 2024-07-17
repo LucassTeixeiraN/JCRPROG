@@ -10,29 +10,19 @@ def remove_repetidos(lista):
             lista_sem_repetidos.append(elemento)
     return lista_sem_repetidos
 
-# Solicita ao usuário a quantidade de números e verifica se é um número válido
-while True:
-    try:
-        quantidade = int(input("Quantos números você deseja inserir? "))
-        break
-    except ValueError:
-        print("Por favor, insira um número válido.")
-
-# Solicita os números e verifica se são válidos
-numeros = []
-for i in range(quantidade):
+def main():
+    numeros = []
     while True:
         try:
-            numero = int(input("Digite um número: "))
+            entrada = input("Digite um número (ou pressione Enter para encerrar): ")
+            if entrada == "":
+                break
+            numero = int(entrada)
             numeros.append(numero)
-            break
         except ValueError:
             print("Por favor, insira um número válido.")
 
-# Chama a função e imprime a lista sem repetições
-lista_sem_repetidos = remove_repetidos(numeros)
-print("Lista sem repetições:", lista_sem_repetidos)
+    lista_sem_repetidos = remove_repetidos(numeros)
+    print("Lista sem repetições:", lista_sem_repetidos)
 
-
-
-
+main()
