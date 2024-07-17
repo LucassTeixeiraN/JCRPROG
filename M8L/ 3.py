@@ -13,5 +13,12 @@ def fatores_primos(n):
     return fatores
 
 # numero de entrada do usuario
-numero=int(input('insira um numero para descobrir os fatores primos dele: '))
-print(fatores_primos(numero))  # Saída: 
+
+def main():
+   while True:
+        try:
+            numero=int(input('insira um numero para descobrir os fatores primos dele: '))
+            print(fatores_primos(numero))  # Saída: 
+        except ValueError:
+            print("insira uma numero válido")
+main()
