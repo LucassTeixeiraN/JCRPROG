@@ -1,0 +1,56 @@
+1)
+- menu
+- input da lista
+- tentar entender como a linha 11 funciona
+
+2)
+- possivel retirada da função obter_inteiro
+- menu
+
+3)
+- fazer main
+- verificação do input
+
+4)
+- Melhorar o nome das variaveis
+- fazer main
+- fazer mais funções
+
+5)
+- Possivelmente usar while True
+- Fazer a main
+
+6)
+- Formatar o Output
+- main
+
+7)
+- Tentar fazer sem os comandos esquisitos
+- possivel input de lista do usuário
+
+8)
+- main
+- arredondar o output
+
+9) 
+- consertar os returns
+- main
+- menu
+
+10)
+-arrumar a main
+
+11)
+- verificação 90°
+
+12)
+- main
+- verificação
+
+15)
+- Formatar o output
+
+16)
+- Fazer mais função
+- constante 0.2
+- formatar output
