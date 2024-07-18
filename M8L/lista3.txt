@@ -47,10 +47,10 @@
 - main
 - verificação
 
-15)
+15) Done
 - Formatar o output
 
-16)
+16) Done
 - Fazer mais função
 - constante 0.2
 - formatar output
