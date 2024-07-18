@@ -22,11 +22,10 @@ def multiplicacao(a,b):
     return resp
 
 def main():
-    numero = input("Insira um número para ver sua tabuada: ")
-
     while True:
         try:
-            numero = int(numero)
+            print("-"*50)
+            numero = int(input("Insira um número para ver sua tabuada: "))
             break
         except ValueError:
             print("Insira um número inteiro.")
