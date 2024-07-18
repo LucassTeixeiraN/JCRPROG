@@ -42,20 +42,20 @@ def calcSeno(graus, prec):
 
 
 def main():
-    grau = input("Insira um ângulo em grau e descubra seu seno: ")
-    prec = input("Insira a precisão do calculo (o número inserido será a quantidade de operações feitas no cálculo do seno): ")
 
     while True:
-        grau = float(grau)
-        prec = int(prec)
         try:
-            if 0 <= grau <= 90 and prec > 0:
-                calcSeno(float(grau), int(prec))
-                break
-            else:
-                print("Valores inválidos")
+            grau = float(input("Insira um ângulo em grau e descubra seu seno: "))
+            prec = int(input("Insira a precisão do calculo (o número inserido será a quantidade de operações feitas no cálculo do seno): "))
+            break
         except ValueError:
             print("Valores inválidos")
+
+
+    if 0 <= grau <= 90 and prec > 0:
+        calcSeno(grau, prec)
+    else:
+        print("Valores inválidos. Tente inserir entre 0° e 90°, além de uma precisão inteira e positiva")
 
 
 main()
