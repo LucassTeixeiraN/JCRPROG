@@ -6,10 +6,12 @@ lista'''
 def main():
     lista = criarLista()
     
+    print("-"*60)
     media(lista)
     maiorN(lista)
     menorN(lista)
     somaLista(lista)
+    print("-"*60)
 
 
 def criarLista():
@@ -29,7 +31,7 @@ def criarLista():
 
 def media(list):
     media = sum(list)/len(list)
-    print(f"A média dos valores da lista é {media}")
+    print(f"A média dos valores da lista é {media:.2f}")
 
 
 def maiorN(list):
