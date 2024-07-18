@@ -30,12 +30,12 @@ def calcSeno(graus, prec):
         for j in range(1, n+1):
             fatorial *= j
 
-        resultado += (rad**n)/fatorial
+        resultado += ((rad*3.14)**n)/fatorial
 
         if i < prec-1:
-            seno += f'{rad}^{n}/{n}! + '
+            seno += f'{rad}π^{n}/{n}! + '
         else:
-            seno += f'{rad}^{n}/{n}! = {resultado}'
+            seno += f'{rad}π^{n}/{n}! = {resultado}'
 
         n += 2
     print(seno)
@@ -45,7 +45,17 @@ def main():
     grau = input("Insira um ângulo em grau e descubra seu seno: ")
     prec = input("Insira a precisão do calculo (o número inserido será a quantidade de operações feitas no cálculo do seno): ")
 
-    if not grau.isalpha() and prec.isnumeric() and int(prec) > 0:
-        calcSeno(float(grau), int(prec))
+    while True:
+        grau = float(grau)
+        prec = int(prec)
+        try:
+            if 0 <= grau <= 90 and prec > 0:
+                calcSeno(float(grau), int(prec))
+                break
+            else:
+                print("Valores inválidos")
+        except ValueError:
+            print("Valores inválidos")
+
 
 main()
