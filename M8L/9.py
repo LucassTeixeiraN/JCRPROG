@@ -12,11 +12,11 @@ def CparaK(Celsius):
 def KparaC(Kelvin):
     return(Kelvin-273)
 def KparaF(Kelvin):
-    Celsius = KparaC(Kelvin)
-    return(Kelvin)
+    celsius = KparaC(Kelvin)
+    return(CparaF(celsius))
 def FparaK (Fahrenheit):
     celsius = (Fahrenheit -32) * 5/9
-    return(Fahrenheit)
+    return(celsius+273)
 
 def obter_entrada_usuario():
     while True:
@@ -27,24 +27,31 @@ def obter_entrada_usuario():
         except ValueError:
             print("Entrada inválida. Por favor, digite um número.")
 
+def main():
+    print("Conversão de Celsius para Fahrenheit:")
+    celsius = obter_entrada_usuario()
+    print(f"{celsius}°C = {CparaF(celsius)}°F")
 
-print("Conversão de Celsius para Fahrenheit:")
-celsius = obter_entrada_usuario()
-print(f"{celsius}°C = {CparaF(celsius)}°F")
+    print("\nConversão de Celsius para Kelvin:")
+    celsius = obter_entrada_usuario()
+    print(f"{celsius}°C = {CparaK(celsius)}K")
 
-print("\nConversão de Celsius para Kelvin:")
-celsius = obter_entrada_usuario()
-print(f"{celsius}°C = {CparaK(celsius)}K")
+    print("\nConversão de Kelvin para Celsius:")
+    kelvin = obter_entrada_usuario()
+    print(f"{kelvin}K = {KparaC(kelvin)}°C")
 
-print("\nConversão de Kelvin para Celsius:")
-kelvin = obter_entrada_usuario()
-print(f"{kelvin}K = {KparaC(kelvin)}°C")
+    print("\nConversão de Kelvin para Fahrenheit:")
+    kelvin = obter_entrada_usuario()
+    print(f"{kelvin}K = {KparaF(kelvin)}°F")
 
-print("\nConversão de Kelvin para Fahrenheit:")
-kelvin = obter_entrada_usuario()
-print(f"{kelvin}K = {KparaF(kelvin)}°F")
+    print("\nConversão de Fahrenheit para Kelvin:")
+    fahrenheit = obter_entrada_usuario()
+    print(f"{fahrenheit}°F = {FparaK(fahrenheit)}K")
 
-print("\nConversão de Fahrenheit para Kelvin:")
-fahrenheit = obter_entrada_usuario()
-print(f"{fahrenheit}°F = {FparaK(fahrenheit)}K")
+
+
+main()
+
+
+
 
