@@ -4,26 +4,36 @@ dois números inteiros utilizando esse método. A seguir, escreva um programa qu
 peça ao usuário um número inteiro e imprima a tabuada para aquele número (de 1 à
 10) utilizando a função construída.'''
 
-numero = input("Insira um número para ver sua tabuada: ")
-
 def multiplicacao(a,b):
     resp = f"{a}x{b} = "
 
     for i in range(b):
-        if i < b-1:
-            resp += f"{a} + "
+        if a > 0:
+            if i < b-1:
+                resp += f"{a} + "
+            else:
+                resp += f"{a} = {a*b}"
         else:
-            resp += f"{a} = {a*b}"
-        
+            if i < b-1:
+                resp += f"({a}) + "
+            else:
+                resp += f"({a}) = {a*b}"
+
     return resp
 
-def main(n):
+def main():
+    numero = input("Insira um número para ver sua tabuada: ")
+
+    while True:
+        try:
+            numero = int(numero)
+            break
+        except ValueError:
+            print("Insira um número inteiro.")
+
     print('-'*50)
     for i in range(1,11):
-        print(multiplicacao(n,i))
+        print(multiplicacao(numero,i))
     print('-'*50)
 
-if numero.isnumeric():
-    main(int(numero))
-else:
-    print("Insira um número inteiro.")
+main()
