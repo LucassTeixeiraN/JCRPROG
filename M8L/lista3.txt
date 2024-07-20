@@ -28,7 +28,7 @@
 - Tentar fazer sem os comandos esquisitos
 - possivel input de lista do usuário
 
-8)
+8) done!
 - main
 - arredondar o output
 
