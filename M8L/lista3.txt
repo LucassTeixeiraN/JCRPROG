@@ -20,7 +20,7 @@
 - Possivelmente usar while True
 - Fazer a main
 
-6)
+6)  done!
 - Formatar o Output
 - main
 
