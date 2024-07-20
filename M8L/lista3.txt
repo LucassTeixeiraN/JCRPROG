@@ -3,7 +3,7 @@
 - input da lista
 - tentar entender como a linha 11 funciona
 
-2)
+2) done!!!
 - possivel retirada da função obter_inteiro
 - menu
 
