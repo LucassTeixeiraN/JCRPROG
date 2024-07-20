@@ -33,5 +33,3 @@ def main():
     mostrarMatrir(matriz)
 
 main()
-
-# Formatar o Output
