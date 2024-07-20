@@ -15,30 +15,18 @@ def criarMatriz():
         for i in range(ordem):
             linha = []
             for j in range(ordem):
-                valor = input(f"Insira o valor [{i + 1}, {j + 1}]: ")
-                linha.append(int(valor))
+                while True:
+                    try:
+                        valor = input(f"Insira o valor [{i + 1}, {j + 1}]: ")
+                        linha.append(int(valor))
+                        break
+                    except ValueError:
+                        print("Valor inválido")
             matriz.append(linha)
         
         return matriz
     
-
 # Analisa se todas as condições são verdadeiras e a partir disso imprime uma resposta
-def main():
-    matriz = criarMatriz()
-    soma = sum(matriz[0])
-
-    intervalo = valoresNoIntervalo(matriz)
-    linhas = somaLinhas(matriz, soma)
-    colunas = somaColunas(matriz, soma)
-    diag_princ = somaDP(matriz, soma)
-    diag_sec = somaDS(matriz, soma)
-    print("-"*30)
-    print("A matriz: ")
-    mostrarMatriz(matriz)
-    if intervalo == True and linhas == True and colunas == True and diag_princ == True and diag_sec == True:
-        print("É um quadrado mágico")
-    else:
-        print("Não é um quadrado mágico")
 
 
 # Verifica se todos os valores da matriz estão no intervalo [1..n*n]
@@ -122,3 +110,22 @@ def somaDS(matriz, soma):
 def mostrarMatriz(matriz):
     for i in matriz:
         print(i)
+
+def main():
+    matriz = criarMatriz()
+    soma = sum(matriz[0])
+
+    intervalo = valoresNoIntervalo(matriz)
+    linhas = somaLinhas(matriz, soma)
+    colunas = somaColunas(matriz, soma)
+    diag_princ = somaDP(matriz, soma)
+    diag_sec = somaDS(matriz, soma)
+    print("-"*30)
+    print("A matriz: ")
+    mostrarMatriz(matriz)
+    if intervalo == True and linhas == True and colunas == True and diag_princ == True and diag_sec == True:
+        print("É um quadrado mágico")
+    else:
+        print("Não é um quadrado mágico")
+
+main()
