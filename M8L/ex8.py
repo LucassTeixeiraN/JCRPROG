@@ -7,18 +7,18 @@ utilizando a função FparaC.'''
 def FparaC(F):
     C = 5/9*(F-32)
     return C
-
-while True:
-   
-    F = input("Digite Graus F:")
-    print(50*"-")
-    if not F.isalpha():
-        F = float(F)
-        print(f"Conversao para graus C:{FparaC(F)}")
+def main():
+    while True:
+        try:
+            F = int(input("Digite os graus em F:"))
+            print(50*"-")
+        except ValueError:       
+            print("Dados invalidos")
+                
+                    
+        print(f"Conversao para graus C:{FparaC(F):.2f}")
         print(50*"-")
-    elif F == "no":
+           
         print("Encerrado")
         break
-        
-    else:
-        print("Dados invalidos")
+main()
