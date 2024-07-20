@@ -60,3 +60,5 @@ def main():
         print("As matrizes têm dimensões incompatíveis.")
 
 main()
+
+# retorno da lista vazia
