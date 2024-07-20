@@ -26,19 +26,34 @@ def obter_inteiro(mensagem):
 
 def main():
     while True:
-        a = obter_inteiro("Digite o primeiro número: ")
-        b = obter_inteiro("Digite o segundo número: ")
-        print(f"O MMC de {a} e {b} é: {mmc(a, b)}")
+        print("-"*60)
+        print("Digite a opção: ")
+        print("1 - MMC de dois números")
+        print("2 - MMC de uma lista de números")
+        print("s - Sair do programa")
+        opcao = input()
 
+        if opcao == '1':
+            a = obter_inteiro("Digite o primeiro número: ")
+            b = obter_inteiro("Digite o segundo número: ")
+            print(f"O MMC de {a} e {b} é: {mmc(a, b)}")
+        elif opcao == '2': 
         # Entrada de uma lista de números para calcular o MMC
-        while True:
-            try:
-                numeros = [int(x) for x in input("Digite uma lista de números separados por espaço: ").split()]
-                break
-            except ValueError:
-                print("Por favor, insira apenas números inteiros separados por espaço.")
-        
-        print(f"O MMC da lista {numeros} é: {mmc_lista(numeros)}")
-        break
-if __name__ == "__main__":
-    main()
+            while True:
+                try:
+                    numeros = [int(x) for x in input("Digite uma lista de números separados por espaço: ").split()]
+                    break
+                except ValueError:
+                    print("Por favor, insira apenas números inteiros separados por espaço.")
+            
+            print(f"O MMC da lista {numeros} é: {mmc_lista(numeros)}")
+            continue
+        elif opcao.lower() == "s":
+            break
+        else:
+            print("Comando inválido")
+            continuar = input("Pressione ENTER para continuar")
+            if continuar == "":
+                continue
+
+main()
