@@ -25,3 +25,6 @@ matriz2 = [
 
 print(matrizDiagonal(matriz1))  # Deve retornar True
 print(matrizDiagonal(matriz2))  # Deve retornar False
+
+# main
+# input das matrizes
