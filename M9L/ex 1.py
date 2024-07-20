@@ -1,10 +1,8 @@
-
 """Escreva uma função que leia e retorne uma matriz de inteiros fornecida pelo
 usuário. Sua matriz deve ler os números linha a linha. Os números devem estar
 separados por espaços em branco. Sua função deve interromper a leitura ao
 receber uma linha em branco
 """
-
 
 def ler_matriz():
     matriz = []
@@ -21,9 +19,11 @@ def ler_matriz():
 
 def main():
     minha_matriz = ler_matriz()
+    print("-"*60)
     print("Matriz lida:")
     for linha in minha_matriz:
         print(linha)
+    print("-"*60)
 main()
 
 # Formatar o Output
