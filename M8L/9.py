@@ -1,10 +1,3 @@
-""". Escreva as seguintes funções:
-a. CparaF – faz a conversão de uma temperatura em graus C para graus F.
-b. CparaK – faz a conversão de uma temperatura em C para Kelvin (C=K-273)
-c. KparaC – faz a conversão de K para C.
-d. KparaF – faz a conversão de K para F (dica: utilize as funções anteriores)
-e. FparaK – faz a conversão de F para K. """
-
 def CparaF(Celsius):
     return(Celsius * 9/5)+32
 def CparaK(Celsius):
@@ -28,30 +21,70 @@ def obter_entrada_usuario():
             print("Entrada inválida. Por favor, digite um número.")
 
 def main():
-    print("Conversão de Celsius para Fahrenheit:")
-    celsius = obter_entrada_usuario()
-    print(f"{celsius}°C = {CparaF(celsius)}°F")
+    while True:
+        print("-"*60)
+        print("Escolha qual conversão você deseja fazer:")
+        print("1- Celsius para Fahrenheit")
+        print("2- Celsius para Kelvin")
+        print("3- Kelvin para Celsius")
+        print("4- Kelvin para Fahrenheit")
+        print("5- Fahrenheit para Kelvin")
+        print("S- Sair do programa")
+        opcao = input()
 
-    print("\nConversão de Celsius para Kelvin:")
-    celsius = obter_entrada_usuario()
-    print(f"{celsius}°C = {CparaK(celsius)}K")
+        if opcao == '1':
+            print("-"*60)
+            celsius = obter_entrada_usuario()
+            print(f"{celsius}°C = {CparaF(celsius)}°F")
+            continuar = input("Pressione ENTER para continuar")
+            if continuar == "":
+                continue
+            print("-"*60)
 
-    print("\nConversão de Kelvin para Celsius:")
-    kelvin = obter_entrada_usuario()
-    print(f"{kelvin}K = {KparaC(kelvin)}°C")
+        elif opcao == '2':
+            print("-"*60)
+            celsius = obter_entrada_usuario()
+            print(f"{celsius}°C = {CparaK(celsius)}K")
+            continuar = input("Pressione ENTER para continuar")
+            if continuar == "":
+                continue
+            print("-"*60)
+        
+        elif opcao == '3':
+            print("-"*60)
+            kelvin = obter_entrada_usuario()
+            print(f"{kelvin}K = {KparaC(kelvin)}°C")
+            continuar = input("Pressione ENTER para continuar")
+            if continuar == "":
+                continue
+            print("-"*60)
 
-    print("\nConversão de Kelvin para Fahrenheit:")
-    kelvin = obter_entrada_usuario()
-    print(f"{kelvin}K = {KparaF(kelvin)}°F")
-
-    print("\nConversão de Fahrenheit para Kelvin:")
-    fahrenheit = obter_entrada_usuario()
-    print(f"{fahrenheit}°F = {FparaK(fahrenheit)}K")
-
-
+        elif opcao == '4':
+            print("-"*60)
+            kelvin = obter_entrada_usuario()
+            print(f"{kelvin}K = {KparaF(kelvin)}°F")
+            continuar = input("Pressione ENTER para continuar")
+            if continuar == "":
+                continue
+            print("-"*60)
+        
+        elif opcao == '5':
+            print("-"*60)
+            fahrenheit = obter_entrada_usuario()
+            print(f"{fahrenheit}°F = {FparaK(fahrenheit)}K")
+            continuar = input("Pressione ENTER para continuar")
+            if continuar == "":
+                continue
+            print("-"*60)
+        
+        elif opcao.lower() == "s":
+            break
+        
+        else:
+            print("-"*60)
+            print("Comando inválido")
+            continuar = input("Pressione ENTER para continuar")
+            if continuar == "":
+                continue
 
 main()
-
-
-
-
