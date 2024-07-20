@@ -25,3 +25,5 @@ def main():
     for linha in minha_matriz:
         print(linha)
 main()
+
+# Formatar o Output
