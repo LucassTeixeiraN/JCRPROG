@@ -11,8 +11,13 @@ def criarMatriz():
         for i in range(ordem):
             linha = []
             for j in range(ordem):
-                valor = input(f"Insira o valor [{i + 1}, {j + 1}]: ")
-                linha.append(int(valor))
+                while True:
+                    try:
+                        valor = input(f"Insira o valor [{i + 1}, {j + 1}]: ")
+                        linha.append(int(valor))
+                        break
+                    except ValueError:
+                        print("Valor inválido")
             matriz.append(linha)
         
         return matriz
@@ -37,7 +42,7 @@ def matrizTriang():
                 else:
                     sequencia = False
 
-            #Verifica se a segunda linha termina com zero
+            #Verifica se a penultima linha termina com zero
             elif matriz[len(matriz)-2][len(matriz[i])-1] == 0:
                 #Contabiliza os zeros que aparecem, caso algum número diferente de zero seja analisado, a variável é redefenida para zero
                 if j == 0:
@@ -56,9 +61,9 @@ def matrizTriang():
         zerosNecessarios -= 1
     
     if triangular == True:
-        print("A matriz é triangular")
+        print("A matriz é triangular inferior")
     else:
-        print("A matriz não é triangular")
+        print("A matriz não é triangular inferior")
 
 
 def main():
