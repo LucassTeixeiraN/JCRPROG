@@ -2,63 +2,76 @@
 dimensões compatíveis, sua função deve retornar o produto das duas (C = A × B).
 Caso contrário, sua função deve retornar uma lista vazia.
 '''
-def Matriz(n,m):
-    matriz = []
-    for i in range(n):
-        linha = []
-        
-        
-        for j in range(m):
-            linha.append(int(input()))
-        matriz.append(linha)
-    return matriz
 
-def produto(Matriz1,Matriz2):
-    mlinha1 = len(Matriz1)
-    mlinha2 = len(Matriz2)
-    mcoluna = len(Matriz1[0])
-    if mlinha1 == mlinha2:
-        resultado = []
-        for i in range(mlinha1):
-            linha_resultado = []
-            for j in range(mcoluna):
-                elemento_resultado = Matriz1[i][j] * Matriz2[i][j]
-                linha_resultado.append(elemento_resultado)
-            resultado.append(linha_resultado)
-        return resultado
-    else:
-        return False
-    
+def matriz(nome):
+    while True:
+        try:
+            linhas = int(input(f"Informe o número de linhas da matriz {nome}: "))
+            colunas = int(input(f"Informe o número de colunas da matriz {nome}: "))
+            matriz = []
+
+            print(f"Informe os elementos da matriz {nome}:")
+            for i in range(linhas):
+                linha = []
+                for j in range(colunas):
+                        while True:
+                            try:
+                                elemento = int(input(f"Insira o elemento ({i+1},{j+1}) da matriz {nome}: "))
+                                linha.append(elemento)
+                                break
+                            except ValueError:
+                                print("Valor inválido")
+                matriz.append(linha)
+            return matriz
+        except ValueError:
+            print("Valor inválido")
+
+def multiplicacaoMatriz(A, B):
+    if len(A[0]) != len(B):  # verifica se as dimensões das matrizes são compatíveis
+        return []
+
+    C = []
+
+    # Preenche a matriz C com zero para que ela fique com a ordem correta
+    for i in range(len(A)):
+        linha = [0] * len(B[0])
+        C.append(linha)
+
+    # Faz a multiplicação das linhas da primeira matriz com as colunas da segunda
+    for i in range(len(A)):
+        for j in range(len(B[0])):
+            multip = 0
+            for k in range(len(A[0])):
+                multip += A[i][k] * B[k][j]
+            C[i][j] = multip
+
+    return C
+
+def imprimir_matriz(matriz, nome):
+    print()
+    print(f"Matriz {nome}:")
+    for linha in matriz:
+        print(linha)
+
 def main():
-    n = int(input("Digite o número de linhas da matriz 1: "))
-    m = int(input("Digite o número de colunas da matriz 1: "))
-    
-    print("Digite os elementos da matriz 1:")
-    matriz1 = Matriz(n, m)
-    
-    x = int(input("Digite o número de linhas da matriz 2: "))
-    y = int(input("Digite o número de colunas da matriz 2: "))
-    
-    print("Digite os elementos da matriz 2:")
-    matriz2 = Matriz(x,y)
-    
-    
-    print("\nMatriz 1:")
-    for linha in matriz1:
-        print(linha)
-    
-    print("\nMatriz 2:")
+    A = matriz("A")
+    B = matriz("B")
 
-    for linha in matriz2:
-        print(linha)
+
+    # Imprime as matrizes antes de multiplicá-las
+    print("-"*60)
+    imprimir_matriz(A, "A")
+    imprimir_matriz(B, "B")
+
+    # Multiplicação das matrizes
+    resultado = multiplicacaoMatriz(A, B)
     
-    if not produto(matriz1,matriz2) == False:
-        print("\n")
-        print("Produto das Matrizes:")
-        for linha in produto(matriz1,matriz2):
-            print(linha)
+    if resultado != []:
+        imprimir_matriz(resultado, "C")
     else:
-        print("Nao sao iguais")
+        print()
+        print(f"Matriz c:")
+        print([])
+    print("-"*60)
 
-if __name__ == "__main__":
-    main()
+main()
