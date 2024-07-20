@@ -65,6 +65,8 @@ def main():
     if resultado != []:
         imprimir_matriz(resultado, "C")
     else:
+        print()
+        print(f"Matriz c:")
         print([])
     print("-"*60)
 
