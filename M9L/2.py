@@ -9,17 +9,16 @@ def criarLista():
     print("Insira uma lista bidimensional colocando espaços entre os elementos de uma linha e apertando ENTER entre cada linha")
     print("Obs: Deixe a linha vazia quando não houver mais elementos a serem lidos")
     while True:
-        linha = []
+        try:
+            linha = input()
+            if linha == "":
+                break
+            valor = [int(numero) for numero in linha.split()]
 
-        valor = input()
-        if valor == "":
-            break
-        
-        valor_listado = valor.split()
-        for i in valor_listado:
-            linha.append(i)
-
-        lista.append(linha)
+            lista.append(valor)
+        except ValueError:
+            print("Valor inválido")
+            
     return lista
 
 def analiseMatriz():
@@ -38,11 +37,9 @@ def analiseMatriz():
     else:
         print(())
 
+    print("-"*60)
+
 def main():
     analiseMatriz()
     
 main()
-
-#rever linha 18
-#Formatação output
-#verificação
