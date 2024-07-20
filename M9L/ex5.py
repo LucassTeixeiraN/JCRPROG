@@ -29,7 +29,12 @@ def somaMatriz(A, B):
     if len(A) != len(B) or len(A[0]) != len(B[0]):  # verifica se as dimensões das matrizes são compatíveis
         return []
 
-    C = [[0 for j in range(len(A[0]))] for i in range(len(A))]  # matriz resultante C com zeros
+    C = []
+
+    # Preenche a matriz C com zeros, ficando com a mesma ordem de A e B
+    for i in range(len(A)):
+        linha = [0] * len(A[0])
+        C.append(linha)
 
     for i in range(len(A)):  # soma das matrizes
         for j in range(len(A[0])):
@@ -38,6 +43,7 @@ def somaMatriz(A, B):
     return C
 
 def imprimir_matriz(matriz, nome):
+    print()
     print(f"Matriz {nome}:")
     for linha in matriz:
         print(linha)
@@ -47,18 +53,19 @@ def main():
     A = matriz("A")
     B = matriz("B")
 
+
     # Imprime as matrizes antes de somá-las
+    print("-"*60)
     imprimir_matriz(A, "A")
     imprimir_matriz(B, "B")
 
     # Soma das matrizes
     resultado = somaMatriz(A, B)
-    if resultado:
-        print("A soma das matrizes é:")
+    
+    if resultado != []:
         imprimir_matriz(resultado, "C")
     else:
-        print("As matrizes têm dimensões incompatíveis.")
+        print([])
+    print("-"*60)
 
 main()
-
-# retorno da lista vazia
