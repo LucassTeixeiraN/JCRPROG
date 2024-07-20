@@ -42,3 +42,7 @@ def main():
     analiseMatriz()
     
 main()
+
+#rever linha 18
+#Formatação output
+#verificação
