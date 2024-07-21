@@ -27,12 +27,13 @@ def matriz(nome):
             print("Valor inválido")
 
 def multiplicacaoMatriz(A, B):
-    if len(A[0]) != len(B):  # verifica se as dimensões das matrizes são compatíveis
+    # O número de colunas de A precisa ser igual ao número de linhas de B
+    if len(A[0]) != len(B):
         return []
 
     C = []
 
-    # Preenche a matriz C com zero para que ela fique com a ordem correta
+    # Preenche a matriz C com zeros para que ela fique com o número de linhas de A e número de colunas de B
     for i in range(len(A)):
         linha = [0] * len(B[0])
         C.append(linha)
@@ -57,7 +58,6 @@ def main():
     A = matriz("A")
     B = matriz("B")
 
-
     # Imprime as matrizes antes de multiplicá-las
     print("-"*60)
     imprimir_matriz(A, "A")
@@ -70,7 +70,7 @@ def main():
         imprimir_matriz(resultado, "C")
     else:
         print()
-        print(f"Matriz c:")
+        print(f"Matriz C:")
         print([])
     print("-"*60)
 
