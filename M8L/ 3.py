@@ -22,10 +22,10 @@ def calcImposto(salario, despesas, n_dependentes):
 def verifSituacaoPagamento(imposto):
     if not -100 < imposto < 100:
         if imposto > 0:
-            print(f"Você deve pagar R${round(imposto, 2):.2f}, podendo parcelar em até 6x de R${round(imposto/6, 2):.2f}")
+            print(f"Você deve pagar R${imposto:.2f}, podendo parcelar em até 6x de R${(imposto/6):.2f}")
             print('-'*60)
         else:
-            print(f"Você deve receber R${round(imposto*(-1), 2):.2f}, podendo receber em até 6x de R${round((imposto*-1)/6, 2):.2f}")
+            print(f"Você deve receber R${imposto*(-1):.2f}, podendo receber em até 6x de R${((imposto*-1)/6):.2f}")
             print('-'*60)
     else:
         print("Você não tem valores a receber ou pagar")
