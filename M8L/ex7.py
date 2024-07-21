@@ -5,20 +5,9 @@ b. Retorne uma lista que represente a interseção dos dois conjuntos.
 c. Retorne uma lista que represente a diferença entre os dois conjuntos.
 d. Verifique se o primeiro é um subconjunto do segundo.'''
 
-# def uniao_conjuntos(conjunto1, conjunto2):
-#     return list(set(conjunto1) | set(conjunto2))
-
-# def intersecao_conjuntos(conjunto1, conjunto2):
-#     return list(set(conjunto1) & set(conjunto2))
-
-# def diferenca_conjuntos(conjunto1, conjunto2):
-#     return list(set(conjunto1) - set(conjunto2))
-
-# def eh_subconjunto(conjunto1, conjunto2):
-#     return set(conjunto1).issubset(set(conjunto2))
-
+# Cria os conjuntos
 def criar_conjuntos():
-    print("Insira os conjuntos (use ESPAÇO entre os números)")
+    print("Insira os conjuntos (use ESPAÇO entre os números e ENTER ao final do conjunto)")
     numeros = input()
     while True:
         try:
@@ -27,7 +16,7 @@ def criar_conjuntos():
         except ValueError:
             print("Valores inválidos")
 
-
+# União dos conjuntos
 def uniao_conjuntos(conjunto1, conjunto2):
     conjuntoUniao = conjunto1.copy()
     
@@ -38,7 +27,7 @@ def uniao_conjuntos(conjunto1, conjunto2):
     conjuntoUniao.sort()
     return conjuntoUniao
 
-
+# Interseção dos conjuntos
 def intersecao_conjuntos(conjunto1, conjunto2):
     conjuntoIntersec = []
 
