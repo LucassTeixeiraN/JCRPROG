@@ -5,8 +5,7 @@ feita a opção, o programa deve chamar uma função que leia do usuário os par
 necessários para o cálculo escolhido e a seguir usar uma das funções que você já
 implementou.'''
 
-
-
+# Função para exibir o menu de opções
 def exibir_menu():
     print("Menu:")
     print("1 - Converter um ângulo em graus para radianos")
@@ -15,19 +14,23 @@ def exibir_menu():
     print("4 - Resolver uma equação do segundo grau")
     print("0 - Sair")
 
+# Função para converter graus para radianos (a ser implementada)
 def converter_graus_para_radianos():
-   print("Graus para radiano incompelto")
+    print("Graus para radiano incompleto")
+
+# Função para calcular o seno de um ângulo (a ser implementada)
 def calcular_seno():
-    
     print("Calcular seno incompleto")
 
+# Função para mostrar o valor de π
 def mostrar_valor_pi():
     print("3,14")
 
+# Função para resolver uma equação do segundo grau (a ser implementada)
 def resolver_equacao_segundo_grau():
-    
     print("Função para resolver equação do segundo grau será implementada aqui")
 
+# Função principal para exibir o menu e chamar as funções correspondentes
 def main():
     while True:
         exibir_menu()
@@ -47,5 +50,6 @@ def main():
         else:
             print("Opção inválida. Por favor, escolha uma opção válida.")
 
-
+# Chama a função principal se o script for executado diretamente
 main()
+
