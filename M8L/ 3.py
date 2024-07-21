@@ -1,4 +1,4 @@
-""'''3. Escreva um programa com uma função que, dado um número inteiro (n > 1), retorne
+'''3. Escreva um programa com uma função que, dado um número inteiro (n > 1), retorne
 uma lista com os fatores primos de n.
 '''
 #Dentro do loop principal, temos um loop interno que verifica se n é divisível pelo divisor atual (n % divisor == 0).
@@ -19,8 +19,12 @@ def main():
 # numero de entrada do usuario
     while True:
         try:
-            numero=int(input('insira um numero para descobrir os fatores primos dele: '))
-            print(fatores_primos(numero))  # Saída: 
-        except ValueError:
+            numero=input('insira um numero para descobrir os fatores primos dele (pressione ENTER para finalizar o programa): ')
+            if numero == "":
+                break
+            numero = int(numero)
 
+            print(fatores_primos(numero)) 
+        except ValueError:
+            print("Valor inválido")
 main()
