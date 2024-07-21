@@ -8,9 +8,9 @@ requerida para o cálculo e retorne o seu seno, utilizando a função de convers
 graus-radiano feita anteriormente
 c. Faça um programa que teste a sua função para cálculo do seno. '''
 
+PI = 3,14
 
 def grauParaRad(x):
-
     rad = x/180
     return rad
 
@@ -22,15 +22,15 @@ def calcSeno(graus, prec):
     seno = f'sen {rad}π rad = '
 
 
-    # Tentar deixar mais claro esse loop
     resultado = 0
+    #Número que eleva o x
     n = 1
     for i in range(prec):
         fatorial = 1
         for j in range(1, n+1):
             fatorial *= j
 
-        resultado += ((rad*3.14)**n)/fatorial
+        resultado += ((rad*PI)**n)/fatorial
 
         if i < prec-1:
             seno += f'{rad}π^{n}/{n}! + '
@@ -46,7 +46,7 @@ def main():
     while True:
         try:
             grau = float(input("Insira um ângulo em grau e descubra seu seno: "))
-            prec = int(input("Insira a precisão do calculo (o número inserido será a quantidade de operações feitas no cálculo do seno): "))
+            prec = int(input("Insira a precisão do cálculo (o número inserido será a quantidade de operações feitas no cálculo do seno): "))
             break
         except ValueError:
             print("Valores inválidos")
@@ -56,6 +56,5 @@ def main():
         calcSeno(grau, prec)
     else:
         print("Valores inválidos. Tente inserir entre 0° e 90°, além de uma precisão inteira e positiva")
-
 
 main()
