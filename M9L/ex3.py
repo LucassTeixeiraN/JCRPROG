@@ -4,6 +4,7 @@ bidimensional dada como argumento.
 def criarMatriz():
     while True:
         try:
+            # Solicita ao usuário o número de linhas e colunas da matriz
             linhas = int(input("Insira a quantidade de linhas da matriz: "))
             colunas = int(input("Insira a quantidade de colunas da matriz: "))
             matriz = []
@@ -12,6 +13,7 @@ def criarMatriz():
                 for j in range(colunas):
                     while True:
                         try:
+                            # Solicita um valor numérico inteiro para cada posição da matriz
                             linha.append(int(input(f"Insira um valor numerico inteiro para {i+1,j+1}: ")))
                             break
                         except ValueError:
@@ -21,15 +23,18 @@ def criarMatriz():
         except ValueError:
             print("Valores inválidos")
 
-def mostrarMatrir(matriz):
-    print("-"*60)
+def mostrarMatriz(matriz):
+    print("-" * 60)
+    # Exibe a matriz formatada na saída
     for i in matriz:
         print(i)
-    print("-"*60)
-
+    print("-" * 60)
 
 def main():
     matriz = criarMatriz()
-    mostrarMatrir(matriz)
+    mostrarMatriz(matriz)
 
 main()
+
+
+
