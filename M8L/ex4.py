@@ -5,31 +5,23 @@ combinação:
 ___________
 (𝑚 − 𝑛)! 𝑛!
 '''
-def fatorial(n,m):
+def fatorial(num):
+    if num == 0 or num == 1:
+        return 1
+    else:
+        return num * fatorial(num - 1)
 
+def combinacoes(m, n):
+    return fatorial(m) // (fatorial(m - n) * fatorial(n))
 
-    nf = n
-    j = n
+def main():
+    m = int(input("Digite o valor de m: "))
+    n = int(input("Digite o valor de n: "))
+    if n <= m:
+        print(f"O número de combinações possíveis de {m} elementos em grupos de {n} elementos é: {combinacoes(m, n)}")
+    else:
+        print("Erro: n deve ser menor ou igual a m.")
 
-    mf = m
-    x = m
+if __name__ == "__main__":
+    main()
 
-    L = m-n
-    Lf = L
-    l = L
-
-    lista = []
-    for i in range(n):
-        j -=1
-        if j > 0:
-            nf = nf * j
-    for i in range(m):
-        x -=1
-        if x > 0:
-            mf = mf * x
-    for i in range(L):
-        l -=1
-        if l > 0:
-            Lf = Lf * l
-    result = mf/((Lf)*nf)
-    return result
