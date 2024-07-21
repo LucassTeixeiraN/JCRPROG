@@ -1,3 +1,10 @@
+'''Escreva uma função que, dados dois números inteiros positivos, calcule e retorne o
+Mínimo Múltiplo Comum (MMC) entre os dois. Escreva também uma função que, dada
+uma lista de três ou mais números inteiros positivos, calcule e retorne o Mínimo
+Múltiplo Comum (MMC) entre eles. A seguir, escreva um programa para testar essas
+funções.'''
+
+
 # algoritmo de euclides para calcular MDC
 def mdc(a, b):
     # Teorema de Euclides
@@ -26,7 +33,8 @@ def obter_inteiro(mensagem):
         except ValueError:
             print("Por favor, insira um número inteiro válido.")
 
-def main():
+
+def menu():
     while True:
         print("-"*60)
         print("Digite a opção: ")
@@ -57,5 +65,8 @@ def main():
             continuar = input("Pressione ENTER para continuar")
             if continuar == "":
                 continue
+
+def main():
+    menu()
 
 main()
