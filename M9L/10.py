@@ -4,14 +4,12 @@ secundária é o mesmo. Além disso, a matriz deve conter todos os números inte
 do intervalo [1..n × n]. Escreva um programa que, dada uma matriz quadrada,
 verifique se ela é um quadrado mágico.'''
 
-# Cria a matriz apartir de valores fornecidos pelo usuário
-def criarMatriz():
+def criarMatriz(): # Cria a matriz apartir de valores fornecidos pelo usuário
     ordem = input("Insira o número de linhas e colunas da matriz quadrada")
     matriz = []
 
     if ordem.isnumeric() and int(ordem) > 0:
         ordem = int(ordem)
-
         for i in range(ordem):
             linha = []
             for j in range(ordem):
@@ -23,14 +21,10 @@ def criarMatriz():
                     except ValueError:
                         print("Valor inválido")
             matriz.append(linha)
-        
         return matriz
     
 # Analisa se todas as condições são verdadeiras e a partir disso imprime uma resposta
-
-
-# Verifica se todos os valores da matriz estão no intervalo [1..n*n]
-def valoresNoIntervalo(matriz):
+def valoresNoIntervalo(matriz): # Verifica se todos os valores da matriz estão no intervalo [1..n*n]
     numeros = []
     ordem = len(matriz)
 
@@ -44,88 +38,72 @@ def valoresNoIntervalo(matriz):
     else:
         return False
 
-# Faz a soma de cada linha e verifica se são iguais
-def somaLinhas(matriz, soma):
 
-        checagem = True
-
+def somaLinhas(matriz, soma): # Faz a soma de cada linha e verifica se são iguais
         for i in matriz:
             if sum(i) != soma:
-                checagem = False
-        
-        return checagem
+                return False
+        return True
 
-# Faz a soma de cada coluna e verifica se são iguais
-def somaColunas(matriz, soma):
 
-    checagem = True
-
-    transposta = []
-    for j in range(len(matriz)):
-        linha_transposta = []
-        for i in range(len(matriz)):
-            elemento_transposto = matriz[i][j]
-            linha_transposta.append(elemento_transposto)
-        transposta.append(linha_transposta)
-    
-    for i in transposta:
-        if sum(i) != soma:
-            checagem = False
-    
-    return checagem
-
-# Faz a soma diagonal principal e verifica se é igual
-def somaDP(matriz, soma):
-    checagem = True
-    soma_elementos = 0
-
-    i = 0
+def somaColunas(matriz, soma): # Faz a soma de cada coluna e verifica se são iguais
     n = len(matriz)
-    while i < n:
-        soma_elementos += matriz[i][i]
-        i += 1
-    
-    if soma_elementos != soma:
-        checagem = False
-    return checagem
+    for j in range(n):
+        soma_coluna = 0
+        for i in range(n):
+            soma_coluna += matriz[i][j]
+        if soma_coluna != soma:
+            return False
+    return True
 
-# Faz a soma diagonal secundária e verifica se é igual
-def somaDS(matriz, soma):
-    checagem = True
+def somaDP(matriz, soma): # Faz a soma diagonal principal e verifica se é igual
     soma_elementos = 0
-
-    i = 0
-    j = n = len(matriz)
-    
-    while i < n:
-        soma_elementos += matriz[i][j - 1]
-        i += 1
-        j -= 1
-    
+    n = len(matriz)
+    for i in range(n):
+        soma_elementos += matriz[i][i]
     if soma_elementos != soma:
-        checagem = False
-    return checagem
+        return False
+    return True
 
-# Imprime a matriz fornecida pelo usuário
-def mostrarMatriz(matriz):
+
+def somaDS(matriz, soma): # Faz a soma diagonal secundária e verifica se é igual
+    soma_elementos = 0
+    j = n = len(matriz)
+    for i in range(n):
+        soma_elementos += matriz[i][j - 1]
+        j -= 1
+    if soma_elementos != soma:
+        return False
+    return True
+
+def mostrarMatriz(matriz): # Imprime a matriz fornecida pelo usuário
     for i in matriz:
         print(i)
 
-def main():
+def quadradoMagico():
     matriz = criarMatriz()
     soma = sum(matriz[0])
-
-    intervalo = valoresNoIntervalo(matriz)
-    linhas = somaLinhas(matriz, soma)
-    colunas = somaColunas(matriz, soma)
-    diag_princ = somaDP(matriz, soma)
-    diag_sec = somaDS(matriz, soma)
+    if not valoresNoIntervalo(matriz):
+        return False
+    if not somaLinhas(matriz, soma):
+        return False
+    if not somaColunas(matriz, soma):
+        return False
+    if not somaDP(matriz, soma):
+        return False
+    if not somaDS(matriz, soma):
+        return False
     print("-"*30)
     print("A matriz: ")
     mostrarMatriz(matriz)
-    if intervalo == True and linhas == True and colunas == True and diag_princ == True and diag_sec == True:
-        print("É um quadrado mágico")
+    return True
+
+def main():
+    verifQuadradoMagico = quadradoMagico()
+
+    if verifQuadradoMagico:
+        print("A matriz é um quadrado mágico")
     else:
-        print("Não é um quadrado mágico")
+        print("A matriz não é um quadrado mágico")
 
 main()
