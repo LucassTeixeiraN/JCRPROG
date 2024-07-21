@@ -10,15 +10,15 @@ def moda(lista):
         else:
             frequencia[elemento] = 1
             
-        max_freq = max(frequencia.values())
+    max_freq = max(frequencia.values())
+        
+    result = []
+        
+    for elemento, freq in frequencia.items():
+        if freq == max_freq:
+            result.append(elemento)
             
-        result = []
-            
-        for elemento, freq in frequencia.items():
-            if freq == max_freq:
-                result.append(elemento)
-            
-        return result
+    return result
 print(f"Digite o numero e aperte ENTER: \ncaso queira parar digite S:")
 
 def main():
@@ -26,10 +26,10 @@ def main():
     while True:
         x = input()
         if x.isnumeric():
-        
             lista.append(int(x))
         elif x.upper() == "S":
-            print(moda(lista))
+            print(f"Lista original: {lista}")
+            print(f'Moda(s): {moda(lista)}')
             break
         else:
             print("Entrada invalida")
