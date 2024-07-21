@@ -7,18 +7,18 @@ Divisor Comum (MDC) entre eles. A seguir, escreva um programa para testar essas
 funções.'''
 
 def mdc(a, b):
-    # Teorema de Euclides
+    # Teorema de Euclides para calcular o MDC de dois números
     while b != 0:
-        # As variáveis são salvas simultaneamente
+        # Atualiza 'a' e 'b' simultaneamente: 'a' recebe o valor de 'b' e 'b' recebe o resto da divisão de 'a' por 'b'
         a, b = b, a % b
-    return a
+    return a  # Retorna o MDC
 
 def mdc_lista(numeros):
-    
-    resultado = numeros[0]
-    for num in numeros[1:]:
-        resultado = mdc(resultado, num)
-    return resultado
+    # Calcula o MDC de uma lista de números
+    resultado = numeros[0]  # Inicializa o resultado com o primeiro número da lista
+    for num in numeros[1:]:  # Itera sobre os números restantes na lista
+        resultado = mdc(resultado, num)  # Calcula o MDC do resultado atual com o próximo número
+    return resultado  # Retorna o MDC final
 
 def menu():
     while True:
@@ -35,29 +35,26 @@ def menu():
                 print("-"*60)
                 a = input("Digite o primeiro número: ")
                 b = input("Digite o segundo número: ")
-                if a.isdigit() and b.isdigit():
+                if a.isdigit() and b.isdigit():  # Verifica se as entradas são números válidos
                     a = int(a)
                     b = int(b)
-            
-                    print(f"MDC({a}, {b}) = {mdc(a, b)}")
+                    print(f"MDC({a}, {b}) = {mdc(a, b)}")  # Calcula e imprime o MDC
                     print()
                 else:
-                    print("Insira um números válidos")
+                    print("Insira números válidos")
 
-
-            #MDC de uma lista de números
+            # MDC de uma lista de números
             elif opcao == "2":
                 print("Digite os números que irão compor sua lista (Pressione ESPAÇO entre cada um): ")
                 numeros = input()
-
                 while True:
                     try:
-                        lista = [int(num) for num in numeros.split()]
-                        mdcs = mdc_lista(lista)
-                        print(f'MDC de {lista}: {mdcs}')
+                        lista = [int(num) for num in numeros.split()]  # Converte a entrada em uma lista de inteiros
+                        mdcs = mdc_lista(lista)  # Calcula o MDC da lista
+                        print(f'MDC de {lista}: {mdcs}')  # Imprime o MDC
                         print()
                         break
-                    except ValueError:
+                    except ValueError:  # Trata entradas inválidas
                         print("Valores inválidos")
                         break
 
@@ -68,7 +65,6 @@ def menu():
                 break
 
 def main():
+    menu()  # Chama a função de menu
 
-    menu()
-
-main()
+main()  # Executa o programa
