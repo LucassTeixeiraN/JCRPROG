@@ -22,7 +22,7 @@ def mdc_lista(numeros):
 
 def menu():
     while True:
-        if input("Pressione ENTER para voltar ao Menu") == "":
+        if input("Pressione ENTER para mostrar o Menu") == "":
             print("-"*60)
             print("Selecione uma opção:")
             print("1 - MDC de dois números:")
@@ -33,8 +33,8 @@ def menu():
             # MDC de 2 números
             if opcao == "1":
                 print("-"*60)
-                a = input("Digite o primeiro numero: ")
-                b = input("Digite o segundo numero: ")
+                a = input("Digite o primeiro número: ")
+                b = input("Digite o segundo número: ")
                 if a.isdigit() and b.isdigit():
                     a = int(a)
                     b = int(b)
@@ -42,7 +42,7 @@ def menu():
                     print(f"MDC({a}, {b}) = {mdc(a, b)}")
                     print()
                 else:
-                    print("Insira um numeros validos")
+                    print("Insira um números válidos")
 
 
             #MDC de uma lista de números
