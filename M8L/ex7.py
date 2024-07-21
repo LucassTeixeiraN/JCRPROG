@@ -32,5 +32,4 @@ def main():
     print("É conjunto1 um subconjunto de conjunto2?", eh_subconjunto(conjunto1, conjunto2))
     print("-"*40)
 
-if __name__ == "__main__":
-    main()
+main()
