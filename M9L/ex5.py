@@ -13,20 +13,25 @@ def matriz(nome):
             for i in range(linhas):
                 linha = []
                 for j in range(colunas):
-                        while True:
-                            try:
-                                elemento = int(input(f"Insira o elemento ({i+1},{j+1}) da matriz {nome}: "))
-                                linha.append(elemento)
-                                break
-                            except ValueError:
-                                print("Valor inválido")
+                    while True:
+                        try:
+                            elemento = int(input(f"Insira o elemento ({i+1},{j+1}) da matriz {nome}: "))
+                            linha.append(elemento)
+                            break
+                        except ValueError:
+                            print("Valor inválido")
                 matriz.append(linha)
             return matriz
         except ValueError:
             print("Valor inválido")
 
 def somaMatriz(A, B):
-    if len(A) != len(B) or len(A[0]) != len(B[0]):  # verifica se as dimensões das matrizes são compatíveis
+    """
+    Soma duas matrizes A e B, desde que tenham dimensões compatíveis.
+    Retorna a matriz resultante C = A + B.
+    """
+    if len(A) != len(B) or len(A[0]) != len(B[0]):
+        # Verifica se as dimensões das matrizes são compatíveis
         return []
 
     C = []
@@ -36,38 +41,40 @@ def somaMatriz(A, B):
         linha = [0] * len(A[0])
         C.append(linha)
 
-    for i in range(len(A)):  # soma das matrizes
+    for i in range(len(A)):
+        # Soma das matrizes
         for j in range(len(A[0])):
             C[i][j] = A[i][j] + B[i][j]
 
     return C
 
 def imprimir_matriz(matriz, nome):
+    """
+    Imprime uma matriz com um nome descritivo.
+    """
     print()
     print(f"Matriz {nome}:")
     for linha in matriz:
         print(linha)
 
 def main():
-
     A = matriz("A")
     B = matriz("B")
 
-
     # Imprime as matrizes antes de somá-las
-    print("-"*60)
+    print("-" * 60)
     imprimir_matriz(A, "A")
     imprimir_matriz(B, "B")
 
     # Soma das matrizes
     resultado = somaMatriz(A, B)
-    
+
     if resultado != []:
         imprimir_matriz(resultado, "C")
     else:
         print()
         print(f"Matriz C:")
         print([])
-    print("-"*60)
+    print("-" * 60)
 
 main()
