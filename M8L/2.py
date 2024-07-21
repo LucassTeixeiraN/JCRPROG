@@ -43,10 +43,13 @@ def menu():
         print("s - Sair do programa")
         opcao = input()
 
+        # MMC de dois números
         if opcao == '1':
             a = obter_inteiro("Digite o primeiro número: ")
             b = obter_inteiro("Digite o segundo número: ")
             print(f"O MMC de {a} e {b} é: {mmc(a, b)}")
+        
+        # MMC de uma lista
         elif opcao == '2': 
         # Entrada de uma lista de números para calcular o MMC
             while True:
