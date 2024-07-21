@@ -1,38 +1,42 @@
 '''6. Crie um programa que implemente uma função que, dada uma lista, retorne a moda
 da lista, ou seja, uma lista com o(s) elemento(s) mais frequente(s) da lista original.'''
+# Função para calcular a moda de uma lista
 def moda(lista):
-            
-    frequencia = {}
-            
-    for elemento in lista:
-        if elemento in frequencia:
-            frequencia[elemento] += 1
+    frequencia = {}  # Dicionário para armazenar a frequência de cada elemento
+    
+    for elemento in lista:  # Itera sobre cada elemento da lista
+        if elemento in frequencia:  # Verifica se o elemento já está no dicionário
+            frequencia[elemento] += 1  # Incrementa a contagem do elemento
         else:
-            frequencia[elemento] = 1
+            frequencia[elemento] = 1  # Adiciona o elemento ao dicionário com contagem 1
             
-    max_freq = max(frequencia.values())
+    max_freq = max(frequencia.values())  # Encontra a frequência máxima na lista
         
-    result = []
+    result = []  # Lista para armazenar os elementos com a frequência máxima
         
-    for elemento, freq in frequencia.items():
-        if freq == max_freq:
-            result.append(elemento)
+    for elemento, freq in frequencia.items():  # Itera sobre os itens do dicionário
+        if freq == max_freq:  # Verifica se a frequência do elemento é igual à frequência máxima
+            result.append(elemento)  # Adiciona o elemento à lista de resultados
             
-    return result
+    return result  # Retorna a lista de elementos mais frequentes
+
 print(f"Digite o numero e aperte ENTER: \ncaso queira parar digite S:")
 
+# Função principal para obter a entrada do usuário e exibir a moda da lista
 def main():
-    lista=[]
+    lista = []  # Lista para armazenar os números inseridos pelo usuário
     while True:
-        x = input()
-        if x.isnumeric():
-            lista.append(int(x))
-        elif x.upper() == "S":
-            print(f"Lista original: {lista}")
-            print(f'Moda(s): {moda(lista)}')
-            break
+        x = input()  # Solicita a entrada do usuário
+        if x.isnumeric():  # Verifica se a entrada é um número
+            lista.append(int(x))  # Adiciona o número à lista
+        elif x.upper() == "S":  # Verifica se o usuário deseja encerrar a entrada
+            print(f"Lista original: {lista}")  # Exibe a lista original
+            print(f'Moda(s): {moda(lista)}')  # Exibe a moda da lista
+            break  # Encerra o loop
         else:
-            print("Entrada invalida")
-            print("Digite novamente:")    
+            print("Entrada invalida")  # Mensagem de erro para entradas inválidas
+            print("Digite novamente:")  # Solicita nova entrada
+
+# Chama a função principal se o script for executado diretamente
 main()
-        
+
