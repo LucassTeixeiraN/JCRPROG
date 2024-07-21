@@ -1,6 +1,8 @@
 # algoritmo de euclides para calcular MDC
 def mdc(a, b):
+    # Teorema de Euclides
     while b != 0:
+        # As variáveis são salvas simultaneamente
         a, b = b, a % b
     return a
 
