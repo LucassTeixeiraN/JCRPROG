@@ -23,7 +23,6 @@ def Transposta(matriz):
     return Mt
     
 
-
 def main():
     n = int(input("Digite o número de linhas da matriz: "))
     m = int(input("Digite o número de colunas da matriz: "))
