@@ -25,21 +25,17 @@ def analiseMatriz():
 
     lista = criarLista()
     n_colunas = len(lista[0])
-    matriz = True
 
     for i in lista:
         if len(i) != n_colunas:
-            matriz = False
-            break
+            return ()
         
-    if matriz == True:
-        print((len(lista), n_colunas))
-    else:
-        print(())
+    return (len(lista), n_colunas)
 
-    print("-"*60)
 
 def main():
-    analiseMatriz()
-    
+    analise = analiseMatriz()
+    print(analise)
+    print("-"*60)
+
 main()
