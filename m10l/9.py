@@ -28,35 +28,28 @@ def main():
         print("2. Lista dos quadrados perfeitos até n (em ordem decrescente)")
         print("0. Sair")
 
+        escolha = input("Digite sua escolha: ")
+
         try:
-            escolha = int(input("Digite sua escolha: "))
-        except ValueError:
-            print("Valor inválido. Por favor, insira um número.")
-            continue
-        
-        if escolha == 1:
-            try:
+            if escolha == '1':
                 n = int(input("Insira um número para obter a lista dos primeiros n quadrados perfeitos: "))
                 if n > 0:
                     print(quad_perf(n))
                 else:
                     print("O número deve ser maior que zero.")
-            except ValueError:
-                print("Valor inválido. Por favor, insira um número inteiro positivo.")
-        elif escolha == 2:
-            try:
+            elif escolha == '2':
                 n = int(input("Insira um número para obter a lista dos quadrados perfeitos até n (em ordem decrescente): "))
                 if n > 0:
                     print(quad_perf_inv(n))
                 else:
                     print("O número deve ser maior que zero.")
-            except ValueError:
-                print("Valor inválido. Por favor, insira um número inteiro positivo.")
-        elif escolha == 0:
-            print("Saindo")
-            break
-        else:
-            print("Escolha inválida. Tente novamente.")
+            elif escolha == '0':
+                print("Saindo")
+                break
+            else:
+                print("Escolha inválida. Tente novamente.")
+        except ValueError:
+            print("Valor invalido")
 
 
 main()
