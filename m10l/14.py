@@ -13,11 +13,11 @@ def contar_pares(lista):
     primeira_sublista = lista[0]
     restantes_listas = lista[1:]
 
-    # Calcular a quantidade de zeros na primeira sublista
+    # Calcular os 0 da lista
     qnt_0 = sum(1 for x in primeira_sublista if x == 0)
     metade = len(primeira_sublista) / 2
         
-    # Verifica se o número de zeros é maior que a metade do comprimento da sublista
+    
     if qnt_0 > metade:
         return contar_pares(restantes_listas)
     else:
@@ -44,5 +44,6 @@ def main():
 
     return lista_principal
 
-print(contar_pares(main()))       
+print(f"---------------------\n  {contar_pares(main())}        |") 
+print("---------------------")      
         
