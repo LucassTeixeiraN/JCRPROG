@@ -4,12 +4,14 @@ números inteiros w e devolve True se em todas as sublistas de w existir um núm
 positivo. Por exemplo, no caso da lista [[2,4,3,1],[3,-5,-7],[],[8,0,-6]] a função deve
 devolver False porque em [] não existe nenhum número positivo
 '''
-def numPositivo(sublista):
-    for num in sublista:
-        if num > 0:
-            return True
-    return False
-
+def numPositivo(sublista, index=0):
+    if index >= len(sublista):
+        return False
+    elif sublista[index] > 0:
+        return True  
+    else:
+        return numPositivo(sublista, index + 1)
+    
 def listaTotal(listas):
     if not listas:
         return True
