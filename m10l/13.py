@@ -7,7 +7,7 @@ que ímpares.'''
 def contar_pares(lista):
     
     if not lista:
-        return 0
+        return False
     
     primeira_sublista = lista[0]
     restantes_listas = lista[1:]
@@ -19,10 +19,7 @@ def contar_pares(lista):
     
     if pares_na_primeira > impares_na_primeira:
         return True
-    elif pares_na_primeira == impares_na_primeira:
-        return "Iguais"
-    else:
-        return False
+    return pares_nas_restantes
     
 def main():
     print("Digite uma sequencia de numeros e aperte ENTER para serem colocados em um subconjunto:")
@@ -42,4 +39,4 @@ def main():
 
     return lista_principal
 
-print(contar_pares(main()))       
+print(contar_pares(main()))     
