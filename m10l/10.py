@@ -24,14 +24,16 @@ def multiplicar_elementos(lista, index=0):
         return 1
     return lista[index] * multiplicar_elementos(lista, index + 1)
 
-def contem_parQ(w):
+def contem_parQ(w, cont = 0):
    
-    if not w: 
+    if not w:
+        if cont == 1:
+            return True 
         return False
     elif w[0] % 2 == 0: 
-        return True
+        return contem_parQ(w[1:], cont + 1)
     else:
-        return contem_parQ(w[1:])  
+        return contem_parQ(w[1:], cont)  
     
 
 def contem_apenas_impares(lista):
@@ -76,5 +78,3 @@ def main():
             print("Opção inválida. Tente novamente.")
 
 main()
-
-#contem UM par
