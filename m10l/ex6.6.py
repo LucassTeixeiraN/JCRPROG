@@ -3,24 +3,24 @@ Escreva uma função recursiva que, dado um número inteiro positivo n, retorne 
 representação binária de n; e outra função recursiva que, dado um número binário,
 retorne a sua representação em decimal.
 '''
-def binario(N):
-    binlist = []
-    if N < 0:
-        return "ERRO: Digite um numero inteiro positivo"
-    while N != 0:
-        x = N % 2
-        binlist.append(str(x))
-        N = N // 2
-    binlist.reverse()
-    binario_str = "".join(binlist)
-    return binario_str
+def decbin(numero):
+    if numero == 0:
+        return '0'
+    elif numero == 1:
+        return '1'
+    else:
+        return decbin(numero//2) + str(numero%2) 
+    
+def bindec(numero, expoente, indice = 0):
+    algarismo = int(numero[indice])
 
-def binario_para_decimal(binario):
-    try:
-        decimal = int(binario, 2)
-        return decimal
-    except ValueError:
-        return "ERRO: Insira um número binário válido (composto apenas por 0s e 1s)."
+    if indice == len(numero)-1:
+        if algarismo == 0:
+            return 0
+        return 1
+
+    return algarismo*(2**expoente) + bindec(numero, expoente - 1, indice + 1)
+
 
 def menu():
     while True:
@@ -30,10 +30,8 @@ def menu():
         print("3- Sair")
         print("-" * 70)
 
-        opcao = int(input("Digite a opção desejada: "))
+        opcao = input("Digite a opção desejada: ")
 
-        if opcao < 1 or opcao > 3:
-            print("\t\nValor inválido.")
         return opcao
 
 def main():
@@ -42,23 +40,36 @@ def main():
         try:
             if input("") == "":
                 escolha = menu()
-                if escolha == 1:
+                if escolha == '1':
                     print("-" * 70)
                     N = int(input("Digite o número decimal: "))
+
                     if N >= 0:
-                        print(f"O número {N} em binário é: {binario(N)}")
+                        print(f"O número {N} em binário é: {decbin(N)}")
                     else:
-                        print(binario(N))
+                        print("Insira valores positivos")
                         continue
                     print("-" * 70)
-                elif escolha == 2:
+
+                elif escolha == '2':
                     print("-" * 70)
                     X = input("Digite o número binário: ")
-                    print(f"O número binário {X} em decimal é: {binario_para_decimal(X)}")
-                    print("-" * 70)
-                elif escolha == 3:
+                    verifBin = True
+                    for i in range(len(X)):
+                        if X[i] != '0' and X[i] != '1':
+                            verifBin = False
+
+                    if verifBin == True:
+                        expoente = len(X)-1
+                        print(f"O número binário {X} em decimal é: {bindec(X, expoente)}")
+                        print("-" * 70)
+                    else:
+                        print("Insira apenas números binários")
+
+                elif escolha == '3':
                     print("Saindo do programa.")
                     break
+
                 else:
                     print("Opção inválida.")
             else:
