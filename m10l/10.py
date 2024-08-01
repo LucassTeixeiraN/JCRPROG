@@ -19,6 +19,11 @@ def criar_lista():
         except ValueError:
             print("insira um numero inteiro!")
 
+def multiplicar_elementos(lista, index=0):
+    if index == len(lista):
+        return 1
+    return lista[index] * multiplicar_elementos(lista, index + 1)
+
 def contem_parQ(w):
    
     if not w: 
@@ -40,10 +45,6 @@ def contem_apenas_impares(lista):
             return False
 
 
-def multiplicar_elementos(lista, index=0):
-    if index == len(lista):
-        return 1
-    return lista[index] * multiplicar_elementos(lista, index + 1)
 
 def menu():
     print("\nEscolha uma opção:")
@@ -52,28 +53,26 @@ def menu():
     print("3. Multiplicar elementos")
     print("4. verifica se há somente numeros impares na lista")
     print("5. Sair")
-    opcao = int(input("Digite o número da opção desejada: "))
+    opcao = input("Digite o número da opção desejada: ")
     return opcao
 
 def main():
     minha_lista = []
     while True:
         opcao = menu()
-        if opcao == 1:
+        if opcao == '1':
             minha_lista = criar_lista()
-        elif opcao == 2:
-            print(f"A LISTA CONTEM UM NUMERO PAR?  {contem_parQ(minha_lista)}")
+        elif opcao == '2':
+            print(f"A lista contém ao menos um número par?  {contem_parQ(minha_lista)}")
 
-        elif opcao == 3:
+        elif opcao == '3':
             print(f"Produto dos elementos: {multiplicar_elementos(minha_lista)}")
-        elif opcao == 4:
-            print(f" a lista contem um numero impar ? {contem_apenas_impares(minha_lista)}")
-        elif opcao == 5:
+        elif opcao == '4':
+            print(f" Todos os números da lista são impares? {contem_apenas_impares(minha_lista)}")
+        elif opcao == '5':
             print("Encerrando o programa.")
             break
         else:
             print("Opção inválida. Tente novamente.")
 
-
 main()
-
