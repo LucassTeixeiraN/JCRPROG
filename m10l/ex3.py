@@ -22,16 +22,19 @@ def soma(x):
     else:
         return (x % 10) + soma(x // 10)
 
+def cont(y):
+    if y == 0:
+        return (0,0)
+    soma, quantidade = cont(y // 10)
+    return (soma + (y % 10), quantidade + 1)
+
 def media(y):
-    def cont(y):
-        if y == 0:
-            return (0,0)
-        soma, quantidade = cont(y // 10)
-        return (soma + (y % 10), quantidade + 1)
-    soma , quantidade = cont(y)
+    soma, quantidade = cont(y)
     if quantidade == 0:
         return 0
     return soma / quantidade
+
+
 def menu():
     
     opcao = -1
@@ -65,14 +68,14 @@ def main():
                         print(f"A potência de {k} elevado a {n} é: {resultado:.2f}")
                     elif escolha == 3:
                         x = int(input("Insira um número inteiro não negativo: "))
-                        if x > 0:
+                        if x >= 0:
                             resultado = soma(x)
                             print(f"A soma dos dígitos de {x} é: {resultado}")
                         else:
                             print("\nInsira apenas valores positivos\n")
                     elif escolha == 4:
                         y = int(input("Insira um número inteiro não negativo: "))
-                        if y > 0:
+                        if y >= 0:
                             resultado = media(y)
                             print(f"A média dos dígitos de {y} é: {resultado}")
                         else:
