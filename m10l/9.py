@@ -4,22 +4,15 @@
 # b. Defina uma função que recebe como argumento um número natural n e
 # devolva a lista dos quadrados perfeitos até n, por ordem decrescente.
 
-
-
 def quad_perf(n):
-    """Retorna uma lista dos primeiros n quadrados perfeitos."""
-    if n <= 0:
-        return []  
-    return [i**2 for i in range(1, n + 1)]
+    if n == 1:
+        return [1]
+    return quad_perf(n - 1) + [n*n] 
 
-def quad_perf_inv(n):
-    """Retorna uma lista dos quadrados perfeitos até n, em ordem decrescente."""
-    quadrados = []
-    i = 1
-    while i * i <= n:
-        quadrados.append(i * i)
-        i += 1
-    return sorted(quadrados, reverse=True)
+def quad_perf_inv(n, inicio = 1):
+    if inicio**2 == n:
+        return [n]
+    return quad_perf_inv(n, inicio+1) + [inicio**2]
 
 def main():
     while True:
@@ -51,6 +44,4 @@ def main():
         except ValueError:
             print("Valor invalido")
 
-
 main()
-
