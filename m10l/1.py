@@ -31,12 +31,12 @@ def tempoExec(opcao, numero):
         fim = timeit.default_timer()
         tempo_rec = fim - inicio
         return tempo_rec
-
-    inicio = timeit.default_timer()
-    fibonacciCom(numero)
-    fim = timeit.default_timer()
-    tempo_com = fim - inicio
-    return tempo_com
+    else:
+        inicio = timeit.default_timer()
+        fibonacciCom(numero)
+        fim = timeit.default_timer()
+        tempo_com = fim - inicio
+        return tempo_com
 
     
 
