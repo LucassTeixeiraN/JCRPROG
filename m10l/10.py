@@ -76,3 +76,5 @@ def main():
             print("Opção inválida. Tente novamente.")
 
 main()
+
+#contem UM par
