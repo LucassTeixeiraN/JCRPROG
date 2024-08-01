@@ -4,17 +4,20 @@
 # seguinte. Por exemplo, no caso da lista [[2,2,3,0],[1,2,5,4],[2,4,4]] a função deve
 # devolver 1 pois só a terceira lista está ordenada.
 
-def listaCrescente(lista):
+def listaCrescente(sublista):
 
-    if len(lista) <= 1:
-        return True  
-    return lista[0] <= lista[1] and listaCrescente(lista[1:])
+    if len(sublista) <= 1:
+        return True
+    # Verifica se todos os números estão em ordem crescente
+    return sublista[0] <= sublista[1] and listaCrescente(sublista[1:])
 
 def contagemDeListas(lista):
 
     if not lista:
         return 0
+    # Verifica se o return da função é True
     elif listaCrescente(lista[0]):
+        print(listaCrescente(lista[0]))
         return 1 + contagemDeListas(lista[1:])  
     else:
         return contagemDeListas(lista[1:]) 
