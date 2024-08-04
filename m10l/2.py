@@ -13,8 +13,7 @@ def somaUnitaria(a, b):
 def multiplicacao(a, b):
     if b == 0: 
         return 0
-    else:
-        return a + multiplicacao(a, b-1)
+    return a + multiplicacao(a, b-1)
 
 
 def somaPares(n):
@@ -55,12 +54,12 @@ def main():
                 else:
                     print("Insira valores inteiros positivos")
             elif opcao == "3":
+                n = int(input("Insira n: "))
                 if n > 0:
-                    n = int(input("Insira n: "))
+                    print(f"A soma dos números pares de 0 a {n} é {somaPares(n)}")
                 else:
                     print("Insira um valor inteiro positivo")
 
-                print(f"A soma dos números pares de 0 a {n} é {somaPares(n)}")
             elif opcao == "0":
                 print("Finalizando programa.")
                 print("-"*60)
