@@ -67,6 +67,6 @@ def main():
             else:
                 print("Opção inválida")
 
-        except ValueError:
+        except (ValueError, RecursionError):
             print("Valor inválido")
 main()
