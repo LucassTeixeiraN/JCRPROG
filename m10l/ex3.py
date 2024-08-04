@@ -43,11 +43,8 @@ def menu():
         print("1- Calcular o produtório de um número ", "2- Calcular a potência de um número ", "3- Some os dígitos de um número inteiro ", "4- Calcule a média dos dígitos de um número inteiro ", "5- Sair do progama", sep="\n")
         print("-"*70)
 
-        opcao = int(input("Digite a opção desejada: "))
+        opcao = input("Digite a opção desejada: ")
 
-        if opcao < 1 or opcao > 5:
-            print("\t\nValor inválido.")
-        
         return opcao
 
 def main():
@@ -56,35 +53,35 @@ def main():
             try:
                 if input("") == "":
                     escolha = menu()
-                    if escolha == 1:    
+                    if escolha == '1':    
                             m = float(input("Insira um número: "))
                             n = int(input("Insira a quantidade de vezes que o número será multiplicado: "))
                             resultado = produtorio(m, n)
                             print(f"O produtório de {m}, {n} vezes é = {resultado:.2f}")
-                    elif escolha == 2:
+                    elif escolha == '2':
                         k = float(input("Insira um número: "))
                         n = int(input("Insira o expoente: "))
                         resultado = potencia(k, n)
                         print(f"A potência de {k} elevado a {n} é: {resultado:.2f}")
-                    elif escolha == 3:
+                    elif escolha == '3':
                         x = int(input("Insira um número inteiro não negativo: "))
                         if x >= 0:
                             resultado = soma(x)
                             print(f"A soma dos dígitos de {x} é: {resultado}")
                         else:
                             print("\nInsira apenas valores positivos\n")
-                    elif escolha == 4:
+                    elif escolha == '4':
                         y = int(input("Insira um número inteiro não negativo: "))
                         if y >= 0:
                             resultado = media(y)
                             print(f"A média dos dígitos de {y} é: {resultado}")
                         else:
                             print("\nInsira apenas valores positivos\n")
-                    elif escolha == 5:
+                    elif escolha == '5':
                         print("Saindo do programa.")
                         break
                     else:
-                        print("")
+                        print("\t\nValor inválido")
                 else:
                     continue
             except ValueError:
