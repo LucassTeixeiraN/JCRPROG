@@ -52,7 +52,7 @@ def main():
             print("-"*60)
             
             break
-        except ValueError:
+        except (ValueError, RecursionError):
             print("Número inválido. Tente novamente.")
 
 main()
