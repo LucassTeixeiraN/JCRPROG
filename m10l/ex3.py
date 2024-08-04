@@ -19,8 +19,7 @@ def potencia(k, n):
 def soma(x):
     if x == 0:
         return 0
-    else:
-        return (x % 10) + soma(x // 10)
+    return (x % 10) + soma(x // 10)
 
 def cont(y):
     if y == 0:
@@ -84,6 +83,6 @@ def main():
                         print("\t\nValor inválido")
                 else:
                     continue
-            except ValueError:
+            except (ValueError, RecursionError):
                 print("\nInsira valores válidos\n")
 main() 
