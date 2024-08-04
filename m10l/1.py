@@ -45,7 +45,7 @@ def main():
     while True:
         try:
             numero = int(input("Insira um valor para saber qual número está nessa posição na sequência de Fibonacci: "))
-            print(f'O número que ocupa a {numero}° é: {fibonacciCom(numero)}')
+            print(f'O número que ocupa a {numero}° posição é: {fibonacciCom(numero)}')
             print(f"A função recursiva demorou {tempoExec(1, numero)} segundos")
             print(f"A função não recursiva demorou {tempoExec(2, numero)} segundos")
 
