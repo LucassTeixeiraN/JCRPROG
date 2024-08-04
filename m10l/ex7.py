@@ -12,7 +12,15 @@ def ocorrencias(s, c):
     
 def main():
     string = input("Digite uma frase: ")
-    caractere = input("Que caractere deseja procurar: ")
-    contar = ocorrencias(string, caractere)
-    print(f"A letra '{caractere}' aparece {contar} vezes na string")
+    while True:
+        caractere = input("\nQue caractere deseja procurar?(digite 'stop' quando quiser sair do programa): ")
+        if caractere.lower() == 'stop':
+            print("Saindo do programa.")
+            break
+        else:
+            if len(caractere) == 1: 
+                contar = ocorrencias(string, caractere)
+                print(f"\nO caractere '{caractere}' aparece {contar} vezes na string")
+            else:
+                print("\nERRO: Procure por apenas um caractere por vez!")
 main()
