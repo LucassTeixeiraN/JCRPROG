@@ -33,3 +33,8 @@ def main():
         print(f"{numero} não é um número perfeito.")
 
 main()
+
+# para n = 2: 21(22 − 1) = 6
+# para n = 3: 22(23 − 1) = 28
+# para n = 5: 24(25 − 1) = 496
+# para n = 7: 26(27 − 1) = 8.128
