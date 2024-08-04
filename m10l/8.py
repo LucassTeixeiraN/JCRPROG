@@ -1,5 +1,10 @@
+'''Defina a função que recebe como argumento um número inteiro positivo e devolve
+True se esse número for um número perfeito e False em caso contrário. Recorde que
+um número perfeito é um número natural que é igual à soma de todos os seus
+divisores próprios, isto é, a soma de todos os divisores excluindo o próprio número.
+Pode, se assim o entender, definir funções auxiliares.'''
 
-
+# Coleta todos os divisores
 def divs(n, i=1):
     if i >= (n // 2) + 1:
         return []
@@ -34,7 +39,7 @@ def main():
 
 main()
 
-# para n = 2: 21(22 − 1) = 6
-# para n = 3: 22(23 − 1) = 28
-# para n = 5: 24(25 − 1) = 496
-# para n = 7: 26(27 − 1) = 8.128
+# para n = 2: 2^1(2^2 − 1) = 6
+# para n = 3: 2^2(2^3 − 1) = 28
+# para n = 5: 2^4(2^5 − 1) = 496
+# para n = 7: 2^6(2^7 − 1) = 8.128
