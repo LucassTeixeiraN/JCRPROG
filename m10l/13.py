@@ -5,6 +5,7 @@ pares do que ímpares e False em caso contrário. Por exemplo, no caso da lista
 que ímpares.'''
 
 def contar_pares(lista):
+def verificar_pares(lista):
     
     if not lista:
         return False
@@ -12,31 +13,38 @@ def contar_pares(lista):
     primeira_sublista = lista[0]
     restantes_listas = lista[1:]
     
-    pares_na_primeira = sum(1 for x in primeira_sublista if x % 2 == 0 and x != str(x))
-    impares_na_primeira = sum(1 for x in primeira_sublista if x % 2 != 0 and x != str(x))
     
-    pares_nas_restantes = contar_pares(restantes_listas)
+    pares_na_primeira = sum(1 for x in primeira_sublista if isinstance(x, int) and x % 2 == 0)
+    impares_na_primeira = sum(1 for x in primeira_sublista if isinstance(x, int) and x % 2 != 0)
+    
     
     if pares_na_primeira > impares_na_primeira:
         return True
-    return pares_nas_restantes
     
+    
+    return verificar_pares(restantes_listas)
+
 def main():
-    print("Digite uma sequencia de numeros e aperte ENTER para serem colocados em um subconjunto:")
+    print("Digite uma sequência de números e aperte ENTER para serem colocados em um subconjunto (digite 'exit' para encerrar):")
+    print("Numeros negativos serao convertidos para inteiros.")
+    print(50*"-")
     lista_principal = []
     while True:
-      
-        entrada  = input()
-        
+        entrada = input()
         if entrada.lower() == "exit":
             break
        
         try:
-            subsequencia = list(map(int, entrada.split()))
+            subsequencia =  [int(num) for num in entrada.split()]
+
             lista_principal.append(subsequencia)
         except ValueError:
-            print('Entrada inválida, apenas números são permitidos.')
+            print('Entrada inválida, digite novamente')
 
-    return lista_principal
+    
+    resultado = verificar_pares(lista_principal)
+    print(resultado)
 
-print(contar_pares(main()))     
+
+main()
+
