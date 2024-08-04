@@ -5,10 +5,9 @@
 # posição da primeira ocorrência deste caractere (caso encontre) ou −1 (caso
 # contrário).
 
-
 def maximoLista(lista, max = 0, indice = 0):
     if indice < len(lista):
-        if max == 0 or lista[indice] > max:
+        if max >= 0 and lista[indice] > max:
             max = lista[indice]
             
         return maximoLista(lista, max, indice+1)
@@ -16,7 +15,7 @@ def maximoLista(lista, max = 0, indice = 0):
 
 def listaNNumeros(n, lista, max = 0):
     if n >= 0:
-        if max == 0 or lista[n] > max:
+        if max >= 0 and lista[n] > max:
             max = lista[n]
 
         return listaNNumeros(n-1, lista, max)
@@ -62,7 +61,10 @@ def main():
             elif opcoes == "3":
                 s = input("Insira uma palavra: ")
                 c = input("Insira um caractere para ser buscado na palavra anterior: ")
-                print(f"O caractere {c} está no index: {buscarCaracter(s, c)}")
+                if len(c) == 1:
+                    print(f"O caractere {c} está no index: {buscarCaracter(s, c)}")
+                else:
+                    print("Insira apenas um caractere")
 
             elif opcoes == "0":
                 print("Finalizando programa")
@@ -71,7 +73,7 @@ def main():
             
             else:
                 print("Insira uma opção válida")
-        except ValueError:
+        except (ValueError, RecursionError):
             print("Valor inválido")
 
 main()
